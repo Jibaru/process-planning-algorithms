@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIFO</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>FIFO</h1>
+      <p>Es muy simple, los procesos se despachan de acuerdo con su tiempo de llegada a la cola de listos.
+        Una vez que el proceso obtiene la CPU, se ejecuta hasta terminar, ya que es una disciplina “no apropiativa”.
+        Puede ocasionar que procesos largos hagan esperar a procesos cortos y que procesos no importantes hagan esperar
+        a procesos importantes.
+        Es más predecible que otros esquemas. No puede garantizar buenos tiempos de respuesta interactivos.
+      </p>
+      <h2>Primero en entrar, primero en salir (FIFO):</h2>
+      <ul>
+        <li>Las solicitudes se procesan en un orden secuencial.</li>
+        <li>Es una estrategia justa para todos los procesos</li>
+        <li>Esta técnica se parece mucho a la planificación aleatoria si hay muchos procesos.</li>
+      </ul>
+    </header>
+    <hr>
+    <section>
+      <h3>Ejemplo de input:</h3>
+      <p>
+        chrome,0,35<br />
+        python,1,44<br />
+        mozilla,2,45<br />
+        kmplayer,3,15<br />
+        adobe acrobat,2,34<br />
+        adobe flash,0,1<br />
+        autocad,3,3<br />
+        c++,1,1
+      </p>
+      <form id="form-input">
+        <textarea name="input" cols="30" rows="10"></textarea>
+        <button name="proccess">Procesar</button>
+      </form>
+    </section>
+
+    <section id="results">
+      <table>
+        <caption>Tabla 1. Procesos</caption>
+        <thead>
+          <th>Proceso (P)</th>
+          <th>Tiempo de llegada (TLL)</th>
+          <th>Ráfaga de CPU (RAF)</th>
+        </thead>
+        <tbody id="tbody-process"></tbody>
+      </table>
+
+      <table>
+        <caption>Tabla 2. Diagrama de GANT</caption>
+        <thead>
+          <th>Proceso (P)</th>
+          <th>T.E.</th>
+        </thead>
+        <tbody id="tbody-gant"></tbody>
+      </table>
+
+      <table>
+        <caption>Tabla 3. Tiempo de espera promedio</caption>
+        <thead>
+          <th>T.E.Proc</th>
+          <th colspan="2">T.Eje. - T.Lleg.</th>
+          <th>TEP.Proc.</th>
+        </thead>
+        <tbody id="tbody-avg-wait-time"></tbody>
+      </table>
+
+      <table>
+        <caption>Tabla 4. Tiempo de respuesta promedio</caption>
+        <thead>
+          <th>T.R.Proc</th>
+          <th colspan="2">Raf. - T.Esp.</th>
+          <th>T.R.Proc.</th>
+        </thead>
+        <tbody id="tbody-avg-response"></tbody>
+      </table>
+      </div>
+    </section>
+
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>

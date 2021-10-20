@@ -39,7 +39,7 @@ const FifoForm = {
   },
 
   fillTables(proccesses) {
-    const queue = new PriorityQueue((a) => a.tll);
+    const queue = new PriorityQueue((a, b) => a.tll > b.tll);
     proccesses.forEach((proccess) => queue.push(proccess));
 
     let currentReturnTime = 0;

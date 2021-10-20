@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SJF</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>SJF</h1>
+            <p>El algoritmo SJF (Shortest-Job-First) se basa en los ciclos de vida de los procesos, los cuales
+                transcurren en dos
+                etapas o periodos que son: ciclos de CPU y ciclos de entrada/salida, también conocidos por ráfagas.
+
+                La palabra shortest (el más corto) se refiere al proceso que tenga el la ráfaga más corta. La idea es
+                escoger entre todos los procesos listos el que tenga su próxima ráfaga más pequeña.
+            </p>
+            <h2>El SJF se puede comportar de dos formas:</h2>
+            <ul>
+                <li>Con Desalojo: Si se incorpora un nuevo proceso a la cola de listos y este tiene una ráfaga menor que
+                    la
+                    ráfaga del proceso que se está ejecuando, entonces dicho proceso es desalojado y el nuevo proceso
+                    toma
+                    la CPU.</li>
+                <li>Sin desalojo: Cuando un proceso toma la CPU, ningún otro proceso podrá apropiarse de ella hasta que
+                    que
+                    el proceso que la posee termine de ejecutarse.</li>
+            </ul>
+        </header>
+        <hr>
+        <section>
+            <h3>Ejemplo de input:</h3>
+            <p>
+                chrome,0,35<br />
+                python,1,44<br />
+                mozilla,2,45<br />
+                kmplayer,3,15<br />
+                adobe acrobat,2,34<br />
+                adobe flash,0,1<br />
+                autocad,3,3<br />
+                c++,1,1
+            </p>
+            <form id="form-input">
+                <textarea name="input" cols="30" rows="10"></textarea>
+                <button name="proccess">Procesar</button>
+            </form>
+        </section>
+
+        <section id="results">
+            <table>
+                <caption>Tabla 1. Procesos</caption>
+                <thead>
+                    <th>Proceso (P)</th>
+                    <th>Tiempo de llegada (TLL)</th>
+                    <th>Ráfaga de CPU (RAF)</th>
+                </thead>
+                <tbody id="tbody-process"></tbody>
+            </table>
+
+            <table>
+                <caption>Tabla 2. Diagrama de GANT</caption>
+                <thead>
+                    <th>Proceso (P)</th>
+                    <th>T.E.</th>
+                </thead>
+                <tbody id="tbody-gant"></tbody>
+            </table>
+
+            <table>
+                <caption>Tabla 3. Tiempo de espera promedio</caption>
+                <thead>
+                    <th>T.E.Proc</th>
+                    <th colspan="2">T.Eje. - T.Lleg.</th>
+                    <th>TEP.Proc.</th>
+                </thead>
+                <tbody id="tbody-avg-wait-time"></tbody>
+            </table>
+
+            <table>
+                <caption>Tabla 4. Tiempo de respuesta promedio</caption>
+                <thead>
+                    <th>T.R.Proc</th>
+                    <th colspan="2">Raf. - T.Esp.</th>
+                    <th>T.R.Proc.</th>
+                </thead>
+                <tbody id="tbody-avg-response"></tbody>
+            </table>
+            </div>
+        </section>
+
+        <script src="js/app.js" type="module"></script>
+</body>
+
+</html>

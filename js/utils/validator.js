@@ -8,7 +8,14 @@ export class InputValidator {
   isValid() {
     const isString = (obj) =>
       Object.prototype.toString.call(obj) === "[object String]";
-    const isNum = (str) => /^\d+$/.test(str);
+    const isNum = (val) => {
+      var floatRegex = /^-?\d+(?:[.,]\d*?)?$/;
+      if (!floatRegex.test(val)) return false;
+
+      val = parseFloat(val);
+      if (isNaN(val)) return false;
+      return true;
+    };
 
     if (!isString(this._input)) {
       return false;

@@ -3,7 +3,8 @@ import { TableAvgResponse } from "../../js/tables/table_average_response.js";
 import { TableAvgWaitTime } from "../../js/tables/table_average_wait_time.js";
 import { TableGant } from "../../js/tables/table_gant.js";
 import { TableProccesses } from "../../js/tables/table_proccesses.js";
-
+import { InputParser } from "../../js/utils/parser.js";
+import { InputValidator } from "../../js/utils/validator.js";
 import { PriorityQueue } from "../../js/structures/priority_queue.js";
 
 const FifoForm = {
@@ -22,20 +23,26 @@ const FifoForm = {
       this.clearTables();
       const proccesses = this.getProccesses(e);
 
-      if (proccesses) {
+      if (this.validInput(e)) {
+        const proccesses = this.getProccesses(e);
         this.results.style.display = "block";
         this.fillTables(proccesses);
+      } else {
+        this.results.style.display = "none";
+        alert(InputValidator.MESSAGE);
       }
     });
   },
 
-  getProccesses(e) {
-    const proccesses = e.target[0].value.split("\n").map((text) => {
-      const [name, tll, raf] = text.split(",");
-      return new Proccess(name, parseInt(tll), parseInt(raf));
-    });
+  validInput(e) {
+    const input = e.target[0].value;
+    return new InputValidator(input).isValid();
+  },
 
-    return proccesses;
+  getProccesses(e) {
+    return new InputParser(e.target[0].value).parse().map((arr) => {
+      return new Proccess(...arr);
+    });
   },
 
   fillTables(proccesses) {

@@ -41,7 +41,7 @@ export class InputValidator {
           isInvalid = true;
         }
 
-        return { name, tll: parseInt(tll), raf: parseInt(raf) };
+        return { name, tll: parseInt(tll), raf: parseFloat(raf) };
       });
 
     if (splittedParts.length == 0 || isInvalid) {

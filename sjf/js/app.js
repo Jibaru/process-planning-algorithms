@@ -1,10 +1,10 @@
-import { Proccess } from "./proccess.js";
-import { TableAvgResponse } from "./table_average_response.js";
-import { TableAvgWaitTime } from "./table_average_wait_time.js";
-import { TableGant } from "./table_gant.js";
-import { TableProccesses } from "./table_proccesses.js";
+import { Proccess } from "../../js/structures/proccess.js";
+import { TableAvgResponse } from "../../js/tables/table_average_response.js";
+import { TableAvgWaitTime } from "../../js/tables/table_average_wait_time.js";
+import { TableGant } from "../../js/tables/table_gant.js";
+import { TableProccesses } from "../../js/tables/table_proccesses.js";
 
-import { SJFQueue } from "./sjf_queue.js";
+import { SJFQueue } from "../../js/structures/sjf_queue.js";
 
 const FifoForm = {
   formInput: null,

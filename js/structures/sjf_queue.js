@@ -1,4 +1,4 @@
-import { PriorityQueue } from "../../js/structures/priority_queue.js";
+import { PriorityQueue } from "./priority_queue.js";
 
 export class SJFQueue {
   constructor() {

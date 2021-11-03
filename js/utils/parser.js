@@ -9,7 +9,7 @@ export class InputParser {
       .split("\n")
       .map((text) => {
         const [name, tll, raf] = text.split(",");
-        return [name, parseInt(tll), parseInt(raf)];
+        return [name, parseInt(tll), parseFloat(raf)];
       });
   }
 }

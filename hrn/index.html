@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HRN</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>HRN</h1>
+            <p>
+                El algoritmo de planificación HRN (High Response Next Time) o HRRN (Highest Response Ratio Next) es una
+                disciplina no
+                apropiativa (non-preemptive), la cual es una técnica de planificación de CPU en la cual los procesos
+                iniciados no se
+                interrumpen hasta que se completan, para luego recién cambiar hacia otro proceso entre los que hayan
+                llegado hasta ese
+                momento.
+                En el algoritmo HRN la prioridad de cada trabajo depende de su tiempo de ejecución estimado y de la
+                cantidad de tiempo
+                que ha pasado esperando. Los procesos adquieren mayor prioridad cuanto más tiempo esperan, lo que evita
+                que se produzcan
+                aplazamientos indefinidos. De esa manera, los procesos que llevan mucho tiempo esperando compiten frente
+                a los que se
+                estima que tienen tiempos de ejecución cortos, logrando así un balance entre FIFO y SJF, los cuales
+                favorecen
+                desproporcionadamente a los procesos que llegan primero en el primer caso, y a los procesos más cortos
+                en el caso del
+                segundo.
+            </p>
+        </header>
+        <hr>
+        <section>
+            <h3>Ejemplo de input:</h3>
+            <p>
+                chrome,0,35<br />
+                python,1,44<br />
+                mozilla,2,45<br />
+                kmplayer,3,15<br />
+                adobe acrobat,2,34<br />
+                adobe flash,0,1<br />
+                autocad,3,3<br />
+                c++,1,1
+            </p>
+            <form id="form-input">
+                <textarea name="input" cols="30" rows="10"></textarea>
+                <button name="proccess">Procesar</button>
+            </form>
+        </section>
+
+        <section id="results">
+            <table>
+                <caption>Tabla 1. Procesos</caption>
+                <thead>
+                    <th>Proceso (P)</th>
+                    <th>Tiempo de llegada (TLL)</th>
+                    <th>Ráfaga de CPU (RAF)</th>
+                </thead>
+                <tbody id="tbody-process"></tbody>
+            </table>
+
+            <table>
+                <caption>Tabla 2. Diagrama de GANT</caption>
+                <thead>
+                    <th>Proceso (P)</th>
+                    <th>T.E.</th>
+                </thead>
+                <tbody id="tbody-gant"></tbody>
+            </table>
+
+            <table>
+                <caption>Tabla 3. Tiempo de espera promedio</caption>
+                <thead>
+                    <th>T.E.Proc</th>
+                    <th colspan="2">T.Eje. - T.Lleg.</th>
+                    <th>TEP.Proc.</th>
+                </thead>
+                <tbody id="tbody-avg-wait-time"></tbody>
+            </table>
+
+            <table>
+                <caption>Tabla 4. Tiempo de respuesta promedio</caption>
+                <thead>
+                    <th>T.R.Proc</th>
+                    <th colspan="2">Raf. + T.Esp.</th>
+                    <th>T.R.Proc.</th>
+                </thead>
+                <tbody id="tbody-avg-response"></tbody>
+            </table>
+            </div>
+        </section>
+
+        <script src="js/app.js" type="module"></script>
+</body>
+
+</html>

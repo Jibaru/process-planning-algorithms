@@ -1,4 +1,4 @@
-import { Proccess } from "../../js/structures/proccess.js";
+import { IndexedProccess } from "../../js/structures/indexed_proccess.js";
 import { TableAvgResponse } from "../../js/tables/table_average_response.js";
 import { TableAvgWaitTime } from "../../js/tables/table_average_wait_time.js";
 import { TableGant } from "../../js/tables/table_gant.js";
@@ -21,7 +21,6 @@ const FifoForm = {
     this.formInput.addEventListener("submit", (e) => {
       e.preventDefault();
       this.clearTables();
-      const proccesses = this.getProccesses(e);
 
       if (this.validInput(e)) {
         const proccesses = this.getProccesses(e);
@@ -40,13 +39,18 @@ const FifoForm = {
   },
 
   getProccesses(e) {
-    return new InputParser(e.target[0].value).parse().map((arr) => {
-      return new Proccess(...arr);
+    return new InputParser(e.target[0].value).parse().map((arr, i) => {
+      return new IndexedProccess(i, ...arr);
     });
   },
 
   fillTables(proccesses) {
-    const queue = new PriorityQueue((a, b) => a.tll > b.tll);
+    const queue = new PriorityQueue((a, b) => {
+      if (a.tll == b.tll) {
+        return a.index > b.index;
+      }
+      return a.tll > b.tll;
+    });
     proccesses.forEach((proccess) => queue.push(proccess));
 
     let currentReturnTime = 0;

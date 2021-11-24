@@ -1,7 +1,6 @@
 import { GantItem } from "./gant_item.js";
 import { TimeList } from "./time_list.js";
-import { IndexedProccess } from "./indexed_proccess.js";
-import { FloatAdder } from "../utils/float_substractor.js";
+import { FloatAdder } from "../utils/float_operators.js";
 
 export class SRTFGenerator {
   constructor(indexedProccesses) {
@@ -64,11 +63,6 @@ export class SRTFGenerator {
 
     this._gantItemList[this._gantItemList.length - 1].finalTime =
       this._timeList.getMaxTimeExecution();
-
-    /*if (gantItem != null) {
-      gantItem.finalTime = this._timeList.getMaxTimeExecution();
-      this._gantItemList.push(gantItem);
-    }*/
   }
 
   popGantItem() {

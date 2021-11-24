@@ -1,4 +1,4 @@
-import { FloatSubstractor } from "../utils/float_substractor.js";
+import { FloatSubstractor } from "../utils/float_operators.js";
 
 export class TimeList {
   constructor(indexedProcesses) {

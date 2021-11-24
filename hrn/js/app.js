@@ -60,8 +60,8 @@ const HrnForm = {
       );
       TableAvgResponse.insertRow(
         proccess.name,
-        proccess.raf,
-        currentReturnTime
+        generator.timeExcceeded,
+        proccess.tll
       );
 
       currentReturnTime = generator.timeExcceeded;

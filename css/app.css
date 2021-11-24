@@ -2,6 +2,22 @@ h1 {
   text-align: center;
 }
 
+section {
+  background-color: var(--alert-color);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+section a {
+  font-weight: bold;
+}
+
+section a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));

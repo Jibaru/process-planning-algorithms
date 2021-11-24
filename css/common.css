@@ -1,5 +1,6 @@
 :root {
   --background-color: rgb(32, 27, 27);
+  --alert-color: rgb(199, 43, 43);
   --font-color: #fff;
   --button-color: rgb(100, 90, 241);
   --thead-color: rgb(49, 91, 129);

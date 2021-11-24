@@ -1,5 +1,5 @@
 import { Proccess } from "../../js/structures/proccess.js";
-import { TableAvgResponse } from "../../js/tables/table_average_response.js";
+import { TableAvgResponseHRN } from "../../js/tables/table_average_response_hrn.js";
 import { TableAvgWaitTime } from "../../js/tables/table_average_wait_time.js";
 import { TableGant } from "../../js/tables/table_gant.js";
 import { TableProccesses } from "../../js/tables/table_proccesses.js";
@@ -58,7 +58,7 @@ const HrnForm = {
         proccess.tll,
         currentReturnTime
       );
-      TableAvgResponse.insertRow(
+      TableAvgResponseHRN.insertRow(
         proccess.name,
         generator.timeExcceeded,
         proccess.tll
@@ -72,8 +72,9 @@ const HrnForm = {
 
   clearTables() {
     TableProccesses.clear();
-    TableGant.clear(), TableAvgWaitTime.clear();
-    TableAvgResponse.clear();
+    TableGant.clear();
+    TableAvgWaitTime.clear();
+    TableAvgResponseHRN.clear();
   },
 };
 

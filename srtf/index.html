@@ -16,7 +16,18 @@
         <header>
             <h1>SRTF</h1>
             <p>
+                Es similar al SJF, con la diferencia de que si un nuevo proceso pasa a listo se activa el dispatcher
+                para
+                ver si es más
+                corto que lo que queda por ejecutar del proceso en ejecución. Si es así, el proceso en ejecución pasa a
+                listo y su
+                tiempo de estimación se decremento con el tiempo que ha estado ejecutándose.
 
+                En SRTF se penaliza a las ráfagas largas (como en SJF). Un punto débil de este algoritmo se evidencia
+                cuando una ráfaga
+                muy corta suspende a otra un poco más larga, siendo más larga la ejecución en este orden al ser preciso
+                un cambio
+                adicional de proceso y la ejecución del código del planificador.
             </p>
         </header>
         <hr>

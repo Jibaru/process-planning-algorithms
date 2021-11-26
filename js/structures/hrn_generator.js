@@ -35,9 +35,25 @@ export class HRNGenerator {
         priority: this.priority(p.proccess),
       };
     });
-    const proccessMaxPriority = priorityProccesses.reduce((prev, current) => {
-      return prev.priority > current.priority ? prev : current;
-    });
+
+    const maxPriority = Math.max(
+      ...priorityProccesses.map((priorityProcess) => priorityProcess.priority)
+    );
+
+    const processesWithMaxPriority = priorityProccesses.filter(
+      (priorityProcess) => priorityProcess.priority === maxPriority
+    );
+
+    const minIndex = Math.min(
+      ...processesWithMaxPriority.map(
+        (priorityProcess) => priorityProcess.indexedProccess.index
+      )
+    );
+
+    const proccessMaxPriority = processesWithMaxPriority.find(
+      (priorityProcess) => priorityProcess.indexedProccess.index === minIndex
+    );
+
     this._timeExcceeded += proccessMaxPriority.indexedProccess.proccess.raf;
     const i = this._proccessQueue.findIndex(
       (p) => p.index == proccessMaxPriority.indexedProccess.index

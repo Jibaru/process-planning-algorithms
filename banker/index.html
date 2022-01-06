@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritmo del Banquero</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Algoritmo del Banquero</h1>
+            <p>El Algoritmo del banquero, en sistemas operativos es una forma de evitar el interbloqueo, propuesta por
+                primera vez por
+                Edsger Dijkstra. Es un acercamiento teórico para evitar los interbloqueos en la planificación de
+                recursos. Requiere
+                conocer con anticipación los recursos que serán utilizados por todos los procesos. Esto último
+                generalmente no puede ser
+                satisfecho en la práctica.
+                Así, el uso de este tipo de algoritmo permite impedir el interbloqueo, pero supone una serie de
+                restricciones:
+
+                Se debe conocer la máxima demanda de recursos por anticipado.
+                Los procesos deben ser independientes, es decir que puedan ser ejecutados en cualquier orden. Por lo
+                tanto su ejecución
+                no debe estar forzada por condiciones de sincronización.
+                Debe haber un número fijo de recursos a utilizar y un número fijo de procesos.
+                Los procesos no pueden finalizar mientras retengan recursos.
+            </p>
+        </header>
+        <hr>
+        <section>
+            <h3>Ejemplo de input (Para cada matriz nombre proceso, recurso 1, recurso 2, ... ):</h3>
+            <p>
+                P1,8,5,3<br />
+                P2,4,2,3<br />
+                P3,7,0,2<br />
+                P4,7,2,2<br />
+                P5,3,3,3<br />
+            </p>
+            <form id="form-input">
+                <label>Matriz Demanda</label>
+                <textarea name="max-matrix-input" cols="30" rows="10"
+                    placeholder="Ejemplo:&#10;P1,8,5,3&#10;P2,4,2,3&#10;P3,7,0,2&#10;P4,7,2,2&#10;P5,3,3,3"></textarea>
+                <label>Matriz Asignación</label>
+                <textarea name="allocation-matrix-input" cols="30" rows="10"
+                    placeholder="Ejemplo:&#10;P1,8,5,3&#10;P2,4,2,3&#10;P3,7,0,2&#10;P4,7,2,2&#10;P5,3,3,3"></textarea>
+                <label>Vector Recursos Máximo</label>
+                <textarea name="resources-vector-input" cols="30" rows="1" placeholder="Ejemplo: 9,8,6"></textarea>
+                <button name="proccess">Procesar</button>
+            </form>
+        </section>
+
+        <section id="results"></section>
+
+        <script src="js/app.js" type="module"></script>
+</body>
+
+</html>
